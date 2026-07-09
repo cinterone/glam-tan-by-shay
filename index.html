@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glam Tan by Shay — Custom Spray Tans for Prom, Homecoming, Weddings & Competitions</title>
+<meta name="description" content="Flawless, custom spray tans by Shay. Perfect for prom, homecoming, wedding parties, and bodybuilding competitions. Private home studio, by appointment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --noir: #0D0810;
+    --noir-2: #1A0F1E;
+    --pink: #F653A6;
+    --pink-hot: #E3308F;
+    --gold: #F5C860;
+    --gold-deep: #C9932F;
+    --champagne: #FBE3C4;
+    --blush: #FDF0F6;
+    --white: #FFFFFF;
+    --shimmer: linear-gradient(100deg, #F5C860 0%, #FFF6DC 20%, #F5C860 40%, #E8A87C 60%, #FFF0C9 80%, #F5C860 100%);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: var(--noir);
+    background: var(--blush);
+    line-height: 1.65;
+  }
+  .script { font-family: 'Great Vibes', cursive; font-weight: 400; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  /* ============ HEADER ============ */
+  header {
+    background: rgba(13, 8, 16, 0.92);
+    backdrop-filter: blur(8px);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid rgba(245, 200, 96, 0.35);
+  }
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    padding: 0.15em 0.2em;      /* prevent swash clipping */
+    text-decoration: none;
+    background: var(--shimmer);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+    line-height: 1;
+  }
+  @keyframes shine { to { background-position: 200% center; } }
+  nav a {
+    color: var(--champagne);
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+  }
+  nav a:hover { color: var(--gold); }
+  nav a.cta {
+    background: linear-gradient(120deg, var(--pink), var(--pink-hot));
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 999px;
+    box-shadow: 0 0 18px rgba(246, 83, 166, 0.55);
+  }
+  nav a.cta:hover { color: #fff; box-shadow: 0 0 28px rgba(246, 83, 166, 0.9); }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    background: var(--noir);
+  }
+  /*
+    HERO MEDIA — this is where a looping video or dramatic photo of Shay's work goes.
+    Drop a video file (e.g. glow.mp4) next to index.html and uncomment the <video> tag
+    in the HTML below. Until then, the CSS "spotlight" backdrop creates the
+    high-contrast studio-lighting look.
+  */
+  .hero-media {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 70% at 30% 35%, rgba(245, 200, 96, 0.34) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 60% at 74% 68%, rgba(246, 83, 166, 0.30) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 40% at 55% 20%, rgba(232, 168, 124, 0.25) 0%, transparent 65%),
+      linear-gradient(180deg, #0D0810 0%, #1A0F1E 55%, #0D0810 100%);
+  }
+  .hero-media video, .hero-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: contrast(1.25) saturate(1.1) brightness(0.85);
+  }
+  .hero-media::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 30%, rgba(13,8,16,0.85) 100%);
+  }
+  #glitter { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+  .hero-content { position: relative; z-index: 3; padding: 120px 24px; }
+  .hero .eyebrow {
+    display: inline-block;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.4rem, 9vw, 6.5rem);
+    font-weight: 400;
+    line-height: 1.35;          /* room for script ascenders/descenders */
+    padding: 0 0.25em;          /* room for swashes on G and y */
+    margin-bottom: 8px;
+    background: var(--shimmer);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3.5s linear infinite;
+    filter: drop-shadow(0 0 24px rgba(245, 200, 96, 0.45));
+  }
+  .hero .tagline {
+    font-size: clamp(1rem, 2.4vw, 1.5rem);
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(246, 83, 166, 0.6);
+  }
+  .btn {
+    display: inline-block;
+    background: linear-gradient(120deg, var(--pink), var(--pink-hot));
+    color: #fff;
+    padding: 17px 46px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 26px rgba(246, 83, 166, 0.6), inset 0 0 0 1px rgba(255,255,255,0.25);
+    transition: transform 0.15s, box-shadow 0.15s;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 44px rgba(246, 83, 166, 0.95), inset 0 0 0 1px rgba(255,255,255,0.4); }
+
+  /* ============ GLITTER STRIP ============ */
+  .glitter-strip {
+    height: 14px;
+    background: var(--shimmer);
+    background-size: 200% auto;
+    animation: shine 2.2s linear infinite;
+    box-shadow: 0 0 24px rgba(245, 200, 96, 0.7);
+    position: relative;
+    z-index: 5;
+  }
+
+  /* ============ SECTIONS ============ */
+  section { padding: 76px 0; }
+  .sec-head { text-align: center; margin-bottom: 46px; }
+  .sec-head .kicker {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--pink-hot);
+  }
+  .sec-head h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: 400;
+    line-height: 1.3;
+    padding: 0 0.25em;
+    color: var(--noir);
+  }
+  .sec-head p { color: #7A6275; max-width: 560px; margin: 10px auto 0; }
+  .dark .sec-head h2 { color: #fff; filter: drop-shadow(0 0 16px rgba(245,200,96,0.35)); }
+  .dark .sec-head .kicker { color: var(--gold); }
+
+  /* ============ OCCASIONS / GALLERY ============ */
+  .occasions { background: var(--blush); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+  .card {
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    min-height: 330px;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(26, 15, 30, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    /*
+      REPLACE WITH REAL PHOTOS: give each .card a background-image of Shay's work,
+      e.g. style="background-image:url('prom.jpg')". The dark gradient overlay and
+      spotlight below keep the high-contrast editorial look over any photo.
+    */
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 30%, rgba(245,200,96,0.35) 0%, transparent 65%),
+      linear-gradient(160deg, #2A1830 0%, #0D0810 100%);
+    background-size: cover;
+    background-position: center;
+  }
+  .card:nth-child(2) { background:
+      radial-gradient(ellipse 70% 55% at 50% 30%, rgba(246,83,166,0.35) 0%, transparent 65%),
+      linear-gradient(160deg, #301328 0%, #0D0810 100%); }
+  .card:nth-child(3) { background:
+      radial-gradient(ellipse 70% 55% at 50% 30%, rgba(232,168,124,0.4) 0%, transparent 65%),
+      linear-gradient(160deg, #2E1A12 0%, #0D0810 100%); }
+  .card:nth-child(4) { background:
+      radial-gradient(ellipse 70% 55% at 50% 30%, rgba(245,200,96,0.3) 0%, transparent 65%),
+      linear-gradient(160deg, #241430 0%, #0D0810 100%); }
+  .card:hover { transform: translateY(-6px) scale(1.015); box-shadow: 0 18px 44px rgba(246, 83, 166, 0.35); }
+  .card::before {
+    content: "✦";
+    position: absolute;
+    top: 18px; right: 20px;
+    color: var(--gold);
+    font-size: 1.3rem;
+    text-shadow: 0 0 12px rgba(245,200,96,0.9);
+    animation: twinkle 2.4s ease-in-out infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.7) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.2) rotate(25deg); }
+  }
+  .card-body {
+    width: 100%;
+    padding: 26px 22px;
+    background: linear-gradient(0deg, rgba(13,8,16,0.92) 0%, rgba(13,8,16,0.55) 60%, transparent 100%);
+  }
+  .card h3 { font-family: 'Great Vibes', cursive; font-size: 2rem; font-weight: 400; color: var(--gold); margin-bottom: 4px; line-height: 1.1; }
+  .card p { font-size: 0.88rem; color: #E9D9E4; font-weight: 400; }
+
+  /* ============ STUDIO (dark) ============ */
+  .studio {
+    background:
+      radial-gradient(ellipse 60% 80% at 15% 30%, rgba(246,83,166,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 70% at 88% 70%, rgba(245,200,96,0.16) 0%, transparent 55%),
+      var(--noir);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .studio-inner { max-width: 680px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+  .studio-inner p { margin-bottom: 14px; color: #E9D9E4; font-weight: 300; font-size: 1.02rem; }
+  .studio-inner p strong { color: var(--gold); font-weight: 600; }
+  .perks { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .perk {
+    border: 1px solid rgba(245,200,96,0.55);
+    color: var(--champagne);
+    border-radius: 999px;
+    padding: 9px 22px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(245,200,96,0.06);
+  }
+
+  /* ============ STEPS ============ */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 22px; }
+  .step {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid #F3D9E8;
+    box-shadow: 0 6px 20px rgba(246, 83, 166, 0.08);
+  }
+  .step .num {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.9rem;
+    color: #fff;
+    background: linear-gradient(120deg, var(--pink), var(--pink-hot));
+    width: 54px; height: 54px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    box-shadow: 0 0 18px rgba(246,83,166,0.5);
+  }
+  .step h3 { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+  .step p { font-size: 0.9rem; color: #7A6275; }
+
+  /* ============ CONTACT ============ */
+  .contact { background: var(--white); }
+  form { max-width: 540px; margin: 0 auto; display: grid; gap: 14px; }
+  label { font-weight: 700; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--noir); }
+  input, select, textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 2px solid #F3D9E8;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--blush);
+    color: var(--noir);
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--pink); background: #fff; box-shadow: 0 0 12px rgba(246,83,166,0.25); }
+  ::placeholder { color: #C3A3B8; }
+  .email-alt { text-align: center; margin-top: 22px; color: #7A6275; font-size: 0.95rem; }
+  .email-alt a { color: var(--pink-hot); font-weight: 700; }
+
+  footer {
+    background: var(--noir);
+    color: #C9B3C4;
+    text-align: center;
+    padding: 32px 0;
+    font-size: 0.85rem;
+  }
+  footer .foot-logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    padding: 0.1em 0.2em;
+    line-height: 1.4;
+    background: var(--shimmer);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+    margin-bottom: 6px;
+  }
+
+  @media (max-width: 600px) {
+    nav a:not(.cta) { display: none; }
+    .hero-content { padding: 90px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #glitter { display: none; }
+    .logo, .hero h1, .glitter-strip, footer .foot-logo { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">Glam Tan by Shay</a>
+    <nav>
+      <a href="#occasions">Occasions</a>
+      <a href="#studio">The Studio</a>
+      <a href="#how">How It Works</a>
+      <a class="cta" href="#book">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <!-- To use a looping video: place glow.mp4 next to index.html and uncomment:
+    <video autoplay muted loop playsinline poster="hero.jpg">
+      <source src="glow.mp4" type="video/mp4">
+    </video>
+    Or a dramatic photo: <img src="hero.jpg" alt="">
+    -->
+  </div>
+  <canvas id="glitter"></canvas>
+  <div class="hero-content">
+    <div class="eyebrow">✦ Custom Airbrush Spray Tans ✦</div>
+    <h1>Glam Tan by Shay</h1>
+    <p class="tagline">Your big moment deserves a golden glow</p>
+    <a class="btn" href="#book">Book Your Glow</a>
+  </div>
+</section>
+<div class="glitter-strip"></div>
+
+<section id="occasions" class="occasions">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">The Occasions</div>
+      <h2>Glow for every moment</h2>
+      <p>Every tan is custom-blended to your skin tone and your event — never orange, never streaky, always camera-ready.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="card-body"><h3>Prom &amp; Homecoming</h3><p>The perfect glow to match your dress. Book with your besties — group appointments welcome!</p></div></div>
+      <div class="card"><div class="card-body"><h3>Weddings</h3><p>Bride, bridesmaids, moms — a natural, photo-perfect tan for the whole wedding party.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Competition</h3><p>Deep, even, stage-ready color for bodybuilding and fitness competitions.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Just Because</h3><p>Vacation, photos, a confidence boost — you don't need a reason to glow.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="studio" class="studio dark">
+  <div class="container studio-inner">
+    <div class="sec-head">
+      <div class="kicker">The Studio</div>
+      <h2>Hi gorgeous, I'm Shay</h2>
+    </div>
+    <p>I run Glam Tan out of my <strong>private home studio</strong> — no salon crowds, no rushing, just you, great music, and a tan that looks like you were born with it.</p>
+    <p>I custom-mix every solution to match your skin tone and your event, and I'll walk you through exactly how to prep and how to make your glow last.</p>
+    <div class="perks">
+      <span class="perk">✦ Private studio</span>
+      <span class="perk">✦ Custom-blended color</span>
+      <span class="perk">✦ Group bookings</span>
+      <span class="perk">✦ Evenings &amp; weekends</span>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">The Process</div>
+      <h2>How it works</h2>
+      <p>Easy, quick, and gorgeous — you'll be in and out in about 30 minutes.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Book</h3><p>Message me with your event date — I'll help you pick the perfect appointment time (usually 1–2 days before).</p></div>
+      <div class="step"><div class="num">2</div><h3>Prep</h3><p>Shower, exfoliate, and skip lotion the day of. I'll send you the full prep checklist.</p></div>
+      <div class="step"><div class="num">3</div><h3>Glow</h3><p>A quick, comfortable session in my studio — then walk out golden and ready to shine.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="contact">
+  <div class="container">
+    <div class="sec-head">
+      <div class="kicker">Get In Touch</div>
+      <h2>Book your glow</h2>
+      <p>Tell me about your event and I'll get back to you with times. Booking for a group? Even better — bring the whole squad!</p>
+    </div>
+    <!-- Replace YOUR_FORM_ID with a free form ID from formspree.io -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required>
+      </div>
+      <div>
+        <label for="occasion">Occasion</label>
+        <select id="occasion" name="occasion" required>
+          <option value="" disabled selected>Pick your occasion…</option>
+          <option>Prom</option>
+          <option>Homecoming</option>
+          <option>Wedding</option>
+          <option>Competition</option>
+          <option>Just because ✨</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Event date &amp; details</label>
+        <textarea id="message" name="message" rows="4" placeholder="e.g., Prom is May 2nd — me and 3 friends want tans!" required></textarea>
+      </div>
+      <button class="btn" type="submit">Send It ✨</button>
+    </form>
+    <p class="email-alt">Prefer email? Reach me at <a href="mailto:shay@example.com">shay@example.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">Glam Tan by Shay</div>
+  <p>© 2026 Glam Tan by Shay · Private home studio · By appointment only</p>
+</footer>
+
+<script>
+// ============ GLITTER STORM ============
+(function () {
+  const canvas = document.getElementById('glitter');
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.parentElement;
+  const COLORS = ['#F5C860', '#FFF6DC', '#F653A6', '#E8A87C', '#FFFFFF', '#FFD9EC'];
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  const COUNT = Math.min(180, Math.floor(W * H / 9000));
+
+  function makeParticle(fresh) {
+    return {
+      x: Math.random() * W,
+      y: fresh ? -10 : Math.random() * H,
+      r: 0.8 + Math.random() * 2.6,
+      vy: 0.25 + Math.random() * 0.9,
+      vx: (Math.random() - 0.5) * 0.4,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.04 + Math.random() * 0.08,
+      spin: Math.random() * Math.PI
+    };
+  }
+  for (let i = 0; i < COUNT; i++) particles.push(makeParticle(false));
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of particles) {
+      p.phase += p.speed;
+      p.y += p.vy;
+      p.x += p.vx + Math.sin(p.phase * 0.5) * 0.3;
+      p.spin += 0.02;
+      if (p.y > H + 10) Object.assign(p, makeParticle(true));
+
+      const tw = (Math.sin(p.phase) + 1) / 2;           // 0..1 twinkle
+      const alpha = 0.15 + tw * 0.85;
+      const size = p.r * (0.5 + tw * 0.9);
+
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.spin);
+      ctx.fillStyle = p.color;
+      ctx.shadowBlur = 8 * tw;
+      ctx.shadowColor = p.color;
+      // diamond-shaped glint
+      ctx.beginPath();
+      ctx.moveTo(0, -size);
+      ctx.lineTo(size * 0.4, 0);
+      ctx.lineTo(0, size);
+      ctx.lineTo(-size * 0.4, 0);
+      ctx.closePath();
+      ctx.fill();
+      // cross-flare on the brightest twinkles
+      if (tw > 0.85) {
+        ctx.globalAlpha = (tw - 0.85) * 4;
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(-size * 2.4, 0); ctx.lineTo(size * 2.4, 0);
+        ctx.moveTo(0, -size * 2.4); ctx.lineTo(0, size * 2.4);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) draw();
+})();
+
+// ============ CURSOR GLITTER TRAIL ============
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(hover: none)').matches) return; // skip touch devices
+
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const COLORS = ['#F5C860', '#FFF6DC', '#F653A6', '#E8A87C', '#FFFFFF', '#FFD9EC'];
+  let W, H, sparks = [];
+
+  function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+  window.addEventListener('resize', resize);
+  resize();
+
+  let lastX = null, lastY = null;
+  window.addEventListener('mousemove', (e) => {
+    const dx = lastX === null ? 0 : e.clientX - lastX;
+    const dy = lastY === null ? 0 : e.clientY - lastY;
+    const speed = Math.min(Math.hypot(dx, dy), 40);
+    lastX = e.clientX; lastY = e.clientY;
+    // faster movement = more glitter
+    const n = 1 + Math.floor(speed / 6);
+    for (let i = 0; i < n; i++) {
+      if (sparks.length > 220) sparks.shift();
+      sparks.push({
+        x: e.clientX + (Math.random() - 0.5) * 10,
+        y: e.clientY + (Math.random() - 0.5) * 10,
+        vx: (Math.random() - 0.5) * 1.4 - dx * 0.03,
+        vy: (Math.random() - 0.5) * 1.4 - dy * 0.03 + 0.4,
+        r: 1 + Math.random() * 2.4,
+        life: 1,
+        decay: 0.015 + Math.random() * 0.025,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        spin: Math.random() * Math.PI,
+        spinV: (Math.random() - 0.5) * 0.25
+      });
+    }
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    sparks = sparks.filter(s => s.life > 0);
+    for (const s of sparks) {
+      s.x += s.vx; s.y += s.vy;
+      s.vy += 0.03;              // gentle fall
+      s.life -= s.decay;
+      s.spin += s.spinV;
+      const size = s.r * s.life;
+
+      ctx.save();
+      ctx.globalAlpha = s.life;
+      ctx.translate(s.x, s.y);
+      ctx.rotate(s.spin);
+      ctx.fillStyle = s.color;
+      ctx.shadowBlur = 6 * s.life;
+      ctx.shadowColor = s.color;
+      ctx.beginPath();
+      ctx.moveTo(0, -size);
+      ctx.lineTo(size * 0.4, 0);
+      ctx.lineTo(0, size);
+      ctx.lineTo(-size * 0.4, 0);
+      ctx.closePath();
+      ctx.fill();
+      if (s.life > 0.75) {       // fresh sparks flare
+        ctx.globalAlpha = (s.life - 0.75) * 3;
+        ctx.strokeStyle = s.color;
+        ctx.lineWidth = 0.6;
+        ctx.beginPath();
+        ctx.moveTo(-size * 2.2, 0); ctx.lineTo(size * 2.2, 0);
+        ctx.moveTo(0, -size * 2.2); ctx.lineTo(0, size * 2.2);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>
