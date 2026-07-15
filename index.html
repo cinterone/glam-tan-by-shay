@@ -3,29 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glam Tan — Custom Spray Tans by Shay | Prom, HoCo, Weddings & Comp Tans</title>
-<meta name="description" content="Custom airbrush spray tans by Shay. Prom, homecoming, weddings, and competition tans. Private home studio — text 815-499-5399 to book your glow.">
+<title>Glam Tan — Custom Spray Tans by Shay Papoccia</title>
+<meta name="description" content="Custom airbrush spray tans by Shay Papoccia. Prom, homecoming, weddings, and competition tans in a private home studio. Text 815-499-5399 to book your glow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
   /* ==========================================================
-     GLAM TAN — matched to Shay's Facebook branding:
-     black + champagne-gold glitter bokeh + holographic script.
-     Mobile-first. Text-first CTAs (her market texts, not calls).
+     GLAM TAN — "perfume campaign" concept.
+     Playfair Display (display serif, italic as art) +
+     Montserrat Light, wide-tracked (quiet-luxury stand-in —
+     swap for the real 'Quiet Luxury' font when self-hosted).
+     Typography carries the design: tracking, scale, whitespace.
      ========================================================== */
   :root {
     --noir: #0A0805;
-    --noir-2: #17120B;
+    --noir-2: #141008;
     --gold: #E9C97E;
     --gold-deep: #C9A24B;
     --champagne: #F7E8C9;
     --cream: #FFF8EA;
-    --holo: linear-gradient(100deg, #FF9AD5 0%, #C79BFF 25%, #8FD3FF 50%, #FFD1A1 75%, #FF9AD5 100%);
+    --hairline: rgba(233, 201, 126, 0.28);
     --gold-shimmer: linear-gradient(100deg, #C9A24B 0%, #F7E8C9 25%, #E9C97E 50%, #FFF3D6 75%, #C9A24B 100%);
-    --script: 'Ms Madi', cursive;
-    --display: 'Syne', sans-serif;
-    --sans: 'Outfit', 'Segoe UI', sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Montserrat', 'Segoe UI', sans-serif;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -33,22 +34,24 @@
   body {
     font-family: var(--sans);
     font-weight: 300;
-    font-size: 1.12rem;
-    line-height: 1.65;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    letter-spacing: 0.02em;
     color: var(--cream);
     background: var(--noir);
     overflow-x: hidden;
   }
-  .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+  .container { width: 100%; max-width: 1060px; margin: 0 auto; padding: 0 26px; position: relative; }
 
-  /* Shimmer + holo text helpers */
-  .holo-text {
-    background: var(--holo);
-    background-size: 250% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shift 5s linear infinite;
+  /* Tracked label — the quiet-luxury signature */
+  .kicker {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-indent: 0.55em; /* balance the trailing tracking */
   }
   .gold-text {
     background: var(--gold-shimmer);
@@ -56,17 +59,32 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: shift 3.5s linear infinite;
+    animation: shift 4s linear infinite;
   }
-  @keyframes shift { to { background-position: 250% center; } }
+  @keyframes shift { to { background-position: 200% center; } }
+
+  /* Giant background letterforms — letters as art */
+  .bg-letter {
+    position: absolute;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(233, 201, 126, 0.13);
+    font-size: clamp(16rem, 55vw, 34rem);
+    line-height: 0.8;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
 
   /* Reveal on scroll */
-  .rv { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+  .rv { opacity: 0; transform: translateY(26px); transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1); }
   .rv.in { opacity: 1; transform: none; }
-  .rv-d1 { transition-delay: 0.12s; } .rv-d2 { transition-delay: 0.24s; } .rv-d3 { transition-delay: 0.36s; }
+  .rv-d1 { transition-delay: 0.15s; } .rv-d2 { transition-delay: 0.3s; } .rv-d3 { transition-delay: 0.45s; }
   @media (prefers-reduced-motion: reduce) {
     .rv { opacity: 1; transform: none; transition: none; }
-    .holo-text, .gold-text, .ticker-track, .glow-btn::after { animation: none !important; }
+    .gold-text { animation: none !important; }
     canvas { display: none !important; }
   }
 
@@ -75,24 +93,27 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 40;
-    padding: 12px 18px;
+    padding: 16px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: background 0.3s, box-shadow 0.3s;
   }
   header.scrolled {
-    background: rgba(10, 8, 5, 0.88);
+    background: rgba(10, 8, 5, 0.9);
     backdrop-filter: blur(10px);
-    box-shadow: 0 1px 0 rgba(233, 201, 126, 0.25);
+    box-shadow: 0 1px 0 var(--hairline);
   }
-  .logo {
-    font-family: var(--script);
-    font-size: 2rem;
-    line-height: 1;
+  .wordmark {
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 0.85rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
     text-decoration: none;
-    padding: 0.15em 0.2em; /* room for script swashes */
+    color: var(--champagne);
   }
+  .wordmark em { font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: 0.05em; color: var(--gold); font-size: 1.15em; }
   .pill {
     display: inline-flex;
     align-items: center;
@@ -100,13 +121,14 @@
     background: var(--gold);
     color: var(--noir);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    padding: 13px 22px;
+    font-weight: 500;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 24px;
     border-radius: 999px;
     min-height: 48px;
-    box-shadow: 0 0 18px rgba(233, 201, 126, 0.45);
+    box-shadow: 0 0 20px rgba(233, 201, 126, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .pill:active { transform: scale(0.97); }
@@ -121,47 +143,58 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    padding: 110px 20px 60px;
+    padding: 120px 20px 70px;
     background:
-      radial-gradient(ellipse 90% 55% at 50% 108%, rgba(201, 162, 75, 0.4) 0%, rgba(233, 201, 126, 0.14) 45%, transparent 75%),
+      radial-gradient(ellipse 90% 50% at 50% 112%, rgba(201, 162, 75, 0.35) 0%, rgba(233, 201, 126, 0.1) 45%, transparent 75%),
       var(--noir);
   }
   #bokeh { position: absolute; inset: 0; pointer-events: none; }
-  .hero-content { position: relative; z-index: 2; }
-  .hero .eyebrow {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
+  .hero-content { position: relative; z-index: 2; width: 100%; }
+  .hero .kicker { display: block; margin-bottom: 34px; }
+  /* The wordmark as art: italic serif over hollow tracked caps */
+  .hero .glam {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(5rem, 24vw, 12rem);
+    line-height: 0.9;
+    display: block;
   }
-  .hero h1 {
-    font-family: var(--script);
-    font-weight: 400;
-    font-size: clamp(4.6rem, 20vw, 9.5rem);
-    line-height: 1.15;
-    padding: 0.05em 0.25em; /* script swash room */
-    filter: drop-shadow(0 0 30px rgba(233, 201, 126, 0.35));
+  .hero .tan {
+    font-family: var(--sans);
+    font-weight: 200;
+    font-size: clamp(3.2rem, 15vw, 7.6rem);
+    letter-spacing: 0.42em;
+    text-indent: 0.42em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--gold);
+    display: block;
+    margin-top: 2px;
+    line-height: 1.1;
   }
   .hero .byline {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: clamp(0.9rem, 3.2vw, 1.15rem);
-    letter-spacing: 5px;
+    margin-top: 30px;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
     text-transform: uppercase;
-    color: var(--champagne);
-    margin-bottom: 20px;
+    color: rgba(255, 248, 234, 0.75);
   }
-  .hero .tag {
-    font-size: clamp(1.1rem, 3.6vw, 1.3rem);
+  .hero .byline em { font-family: var(--serif); font-style: italic; text-transform: none; letter-spacing: 0.03em; font-size: 1.5em; color: var(--gold); }
+  .hero .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.2rem, 4.2vw, 1.55rem);
     color: rgba(255, 248, 234, 0.85);
-    max-width: 34ch;
-    margin: 0 auto 30px;
+    max-width: 30ch;
+    margin: 26px auto 40px;
+    line-height: 1.55;
     text-wrap: balance;
   }
-  .cta-stack { display: flex; flex-direction: column; gap: 13px; align-items: center; }
+  .cta-stack { display: flex; flex-direction: column; gap: 14px; align-items: center; }
   .btn {
     display: inline-flex;
     align-items: center;
@@ -170,321 +203,309 @@
     width: 100%;
     max-width: 360px;
     min-height: 58px;
-    padding: 15px 32px;
+    padding: 16px 34px;
     border-radius: 999px;
     text-decoration: none;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 2px;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.28em;
+    text-indent: 0.28em;
     text-transform: uppercase;
     transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
   }
   .glow-btn {
     background: var(--gold-shimmer);
     background-size: 200% auto;
-    animation: shift 3.5s linear infinite;
+    animation: shift 4s linear infinite;
     color: var(--noir);
-    box-shadow: 0 0 26px rgba(233, 201, 126, 0.55);
+    box-shadow: 0 0 28px rgba(233, 201, 126, 0.5);
   }
-  .glow-btn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 40px rgba(233, 201, 126, 0.85); }
-  .btn-ghost { background: transparent; color: var(--champagne); border: 1.5px solid var(--gold); }
-  .btn-ghost:hover { background: rgba(233, 201, 126, 0.1); }
+  .glow-btn:hover { transform: translateY(-2px); box-shadow: 0 0 42px rgba(233, 201, 126, 0.8); }
+  .btn-ghost { background: transparent; color: var(--champagne); border: 1px solid var(--gold-deep); }
+  .btn-ghost:hover { background: rgba(233, 201, 126, 0.08); }
   .btn:active { transform: scale(0.98); }
-  .hero .reply-note { margin-top: 16px; font-size: 0.95rem; color: rgba(255, 248, 234, 0.7); }
+  .hero .reply-note { margin-top: 18px; font-size: 0.9rem; color: rgba(255, 248, 234, 0.65); letter-spacing: 0.05em; }
   .hero .squad-note {
-    margin-top: 8px;
-    font-family: var(--script);
-    font-size: 1.7rem;
-    padding: 0.1em 0.2em;
+    margin-top: 6px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--gold);
   }
-
-  /* ---------- Ticker ---------- */
-  .ticker {
-    background: var(--gold);
-    color: var(--noir);
-    overflow: hidden;
-    padding: 14px 0;
-    white-space: nowrap;
-    position: relative;
-    z-index: 3;
-  }
-  .ticker-track { display: inline-block; animation: tick 24s linear infinite; }
-  .ticker span {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin: 0 20px;
-  }
-  @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* ---------- Sections ---------- */
-  section { padding: 80px 0; position: relative; }
-  .sec-label {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
+  section { padding: 96px 0; position: relative; overflow: hidden; }
+  .sec-head { position: relative; z-index: 1; }
+  .sec-no {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.05rem;
     color: var(--gold);
-    margin-bottom: 12px;
+    display: block;
+    margin-bottom: 16px;
   }
   h2 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(2rem, 7.5vw, 3.6rem);
-    line-height: 1.06;
-    letter-spacing: -0.5px;
-    text-transform: uppercase;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.3rem, 8.5vw, 4.2rem);
+    line-height: 1.08;
+    letter-spacing: 0.01em;
     text-wrap: balance;
   }
-  h2 .script-mix {
-    font-family: var(--script);
+  h2 em { font-style: italic; font-weight: 400; color: var(--gold); }
+  .sec-sub { color: rgba(255, 248, 234, 0.7); max-width: 46ch; margin-top: 20px; text-wrap: balance; }
+
+  /* ---------- The Notes (occasions as fragrance notes) ---------- */
+  .notes { margin-top: 56px; border-top: 1px solid var(--hairline); position: relative; z-index: 1; }
+  .note {
+    border-bottom: 1px solid var(--hairline);
+    padding: 40px 0;
+  }
+  .note .n-kind {
+    font-size: 0.68rem;
     font-weight: 400;
-    text-transform: none;
-    font-size: 1.35em;
-    letter-spacing: 0;
-    padding: 0 0.15em;
-  }
-  .sec-sub { color: rgba(255, 248, 234, 0.75); max-width: 46ch; margin-top: 16px; text-wrap: balance; }
-
-  /* ---------- Occasions ---------- */
-  .cards { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 44px; }
-  .card {
-    background: linear-gradient(160deg, var(--noir-2) 0%, #0D0A06 100%);
-    border: 1px solid rgba(233, 201, 126, 0.35);
-    border-radius: 22px;
-    padding: 32px 26px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-  }
-  .card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--gold-shimmer);
-    background-size: 200% auto;
-    animation: shift 3s linear infinite;
-  }
-  .card:hover {
-    transform: translateY(-6px);
-    border-color: var(--gold);
-    box-shadow: 0 16px 40px rgba(233, 201, 126, 0.22);
-  }
-  .card .c-sparkle {
-    position: absolute;
-    top: 16px; right: 20px;
-    color: var(--gold);
-    font-size: 1.2rem;
-    text-shadow: 0 0 12px rgba(233, 201, 126, 0.9);
-    animation: twinkle 2.4s ease-in-out infinite;
-  }
-  @keyframes twinkle {
-    0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
-    50% { opacity: 1; transform: scale(1.2) rotate(25deg); }
-  }
-  .card h3 {
-    font-family: var(--script);
-    font-size: 2.5rem;
-    line-height: 1.2;
-    padding: 0.05em 0.1em;
-  }
-  .card .c-kicker {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
+    letter-spacing: 0.5em;
     text-transform: uppercase;
     color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
   }
-  .card p { color: rgba(255, 248, 234, 0.75); margin-top: 10px; font-size: 1.05rem; }
-  .card .c-tag {
-    display: inline-block;
-    margin-top: 16px;
-    border: 1px solid rgba(233, 201, 126, 0.5);
-    color: var(--champagne);
-    border-radius: 999px;
-    padding: 8px 18px;
-    font-size: 0.82rem;
+  .note h3 {
+    font-family: var(--serif);
     font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    line-height: 1.08;
   }
-  .not-sure { margin-top: 34px; font-size: 1.1rem; color: rgba(255, 248, 234, 0.75); }
-  .not-sure a { color: var(--gold); font-weight: 500; }
+  .note h3 em { font-style: italic; font-weight: 400; }
+  .note p { color: rgba(255, 248, 234, 0.7); margin-top: 14px; max-width: 52ch; font-size: 1.02rem; }
+  .note .n-tag {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 10px 22px;
+  }
+  .not-sure {
+    margin-top: 40px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: rgba(255, 248, 234, 0.75);
+    position: relative; z-index: 1;
+  }
+  .not-sure a { color: var(--gold); }
 
-  /* ---------- Steps ---------- */
-  .steps-sec { background: linear-gradient(180deg, var(--noir) 0%, var(--noir-2) 50%, var(--noir) 100%); }
-  .steps { margin-top: 44px; display: grid; grid-template-columns: 1fr; gap: 22px; }
-  .step {
-    border: 1px solid rgba(233, 201, 126, 0.25);
-    border-radius: 22px;
-    padding: 28px 24px;
-    text-align: center;
-    background: rgba(23, 18, 11, 0.6);
-  }
-  .step .s-num {
-    font-family: var(--script);
-    font-size: 2.6rem;
+  /* ---------- The Ritual ---------- */
+  .ritual { background: var(--noir-2); }
+  .ritual-steps { margin-top: 60px; display: grid; grid-template-columns: 1fr; gap: 52px; position: relative; z-index: 1; }
+  .r-step { text-align: center; }
+  .r-step .r-no {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 3.6rem;
     line-height: 1;
-    width: 68px; height: 68px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    border: 1.5px solid var(--gold);
-    color: var(--gold);
-    margin: 0 auto 16px;
-    box-shadow: 0 0 18px rgba(233, 201, 126, 0.3), inset 0 0 12px rgba(233, 201, 126, 0.12);
-    padding-top: 6px;
+    display: block;
+    margin-bottom: 14px;
   }
-  .step h3 {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: 3px;
+  .r-step h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
     text-transform: uppercase;
+    color: var(--champagne);
   }
-  .step p { color: rgba(255, 248, 234, 0.72); margin-top: 10px; font-size: 1.02rem; }
+  .r-step .r-rule { width: 44px; height: 1px; background: var(--gold-deep); margin: 16px auto; }
+  .r-step p { color: rgba(255, 248, 234, 0.68); font-size: 1rem; max-width: 34ch; margin: 0 auto; }
+  /* PLACEHOLDER — confirm the perfume/scent detail with Shay */
+  .scent-line {
+    margin-top: 60px;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+    color: rgba(255, 248, 234, 0.85);
+    max-width: 34ch;
+    margin-left: auto; margin-right: auto;
+    text-wrap: balance;
+    position: relative; z-index: 1;
+  }
+  .scent-line .gold-text { font-style: italic; }
 
   /* ---------- Manifesto ---------- */
-  .manifesto {
-    text-align: center;
-    padding: 100px 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201, 162, 75, 0.16) 0%, transparent 70%),
-      var(--noir);
-  }
-  .manifesto blockquote {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(1.7rem, 7vw, 3.2rem);
-    line-height: 1.15;
+  .manifesto { text-align: center; padding: 130px 0; }
+  .manifesto .line {
+    font-family: var(--sans);
+    font-weight: 200;
+    font-size: clamp(1.15rem, 4.6vw, 2rem);
+    letter-spacing: 0.45em;
+    text-indent: 0.45em;
     text-transform: uppercase;
-    max-width: 20ch;
-    margin: 0 auto;
-    text-wrap: balance;
-  }
-  .manifesto .m-script {
-    font-family: var(--script);
-    font-size: clamp(2.4rem, 9vw, 3.6rem);
     display: block;
-    margin-top: 10px;
-    padding: 0.1em 0.2em;
+    line-height: 2.1;
+    color: rgba(255, 248, 234, 0.85);
+  }
+  .manifesto .line.gold-line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    text-indent: 0;
+    font-size: clamp(2.2rem, 9vw, 4rem);
+    line-height: 1.25;
   }
 
-  /* ---------- Testimonials ---------- */
-  .quotes { margin-top: 44px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+  /* ---------- Love Notes (testimonials) ---------- */
+  .quotes { margin-top: 56px; display: grid; grid-template-columns: 1fr; gap: 22px; position: relative; z-index: 1; }
   .quote {
-    border: 1.5px dashed rgba(233, 201, 126, 0.5);
-    border-radius: 20px;
-    padding: 30px 26px;
+    border: 1px dashed rgba(233, 201, 126, 0.45);
+    border-radius: 2px;
+    padding: 36px 30px;
+    text-align: center;
   }
-  .quote .stars { color: var(--gold); letter-spacing: 4px; margin-bottom: 10px; text-shadow: 0 0 10px rgba(233,201,126,0.6); }
-  .quote p { font-size: 1.15rem; font-style: italic; color: rgba(255, 248, 234, 0.6); }
+  .quote .stars { color: var(--gold); letter-spacing: 0.4em; text-indent: 0.4em; margin-bottom: 16px; font-size: 0.9rem; }
+  .quote p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: rgba(255, 248, 234, 0.6);
+  }
   .quote .who {
-    margin-top: 14px;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 3px;
+    margin-top: 18px;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     color: rgba(233, 201, 126, 0.6);
   }
 
-  /* ---------- Studio / about ---------- */
-  .about-grid { display: grid; grid-template-columns: 1fr; gap: 36px; margin-top: 40px; align-items: center; }
+  /* ---------- The Artist ---------- */
+  .artist-grid { display: grid; grid-template-columns: 1fr; gap: 44px; margin-top: 56px; align-items: center; position: relative; z-index: 1; }
   .photo-slot {
     width: 100%;
     max-width: 340px;
     margin: 0 auto;
-    aspect-ratio: 4 / 5;
-    border-radius: 24px;
-    border: 2px dashed var(--gold);
+    aspect-ratio: 3 / 4;
+    border: 1px solid var(--gold-deep);
+    outline: 1px solid var(--hairline);
+    outline-offset: 8px;      /* double-frame, like a campaign print */
     background:
-      radial-gradient(ellipse 70% 50% at 50% 35%, rgba(233, 201, 126, 0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 70% 50% at 50% 35%, rgba(233, 201, 126, 0.14) 0%, transparent 70%),
       var(--noir-2);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    color: rgba(255, 248, 234, 0.6);
+    gap: 14px;
+    color: rgba(255, 248, 234, 0.55);
     text-align: center;
     padding: 24px;
-  }
-  .photo-slot svg { width: 56px; height: 56px; opacity: 0.5; }
-  .about-copy p { color: rgba(255, 248, 234, 0.78); margin-top: 14px; max-width: 52ch; }
-  .about-copy strong { color: var(--gold); font-weight: 500; }
-  .perks { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-  .perk {
-    border: 1px solid rgba(233, 201, 126, 0.45);
-    color: var(--champagne);
-    border-radius: 999px;
-    padding: 9px 20px;
-    font-size: 0.82rem;
-    font-weight: 500;
-    letter-spacing: 2px;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
+    line-height: 2;
+  }
+  .photo-slot svg { width: 52px; height: 52px; opacity: 0.45; }
+  .artist-copy p { color: rgba(255, 248, 234, 0.75); margin-top: 16px; max-width: 50ch; }
+  .artist-copy strong { color: var(--gold); font-weight: 400; }
+  .artist-copy .sig {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-top: 26px;
+  }
+  .perks { display: flex; gap: 12px 10px; flex-wrap: wrap; margin-top: 28px; }
+  .perk {
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    padding: 10px 20px;
   }
 
   /* ---------- Book ---------- */
-  .book { text-align: center; padding-bottom: 110px; }
+  .book { text-align: center; padding-bottom: 120px; }
   .big-text {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(1.9rem, 8.5vw, 3.8rem);
-    letter-spacing: 0;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2rem, 9vw, 4.2rem);
+    letter-spacing: 0.04em;
     text-decoration: none;
+    color: var(--cream);
     display: inline-block;
-    margin: 22px 0 6px;
-    border-bottom: 3px solid var(--gold);
-    line-height: 1.3;
+    margin: 26px 0 10px;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 8px;
+    line-height: 1.25;
   }
-  .book .reply-note { color: rgba(255, 248, 234, 0.7); font-size: 1rem; margin-bottom: 34px; }
-  form { max-width: 540px; margin: 0 auto; display: grid; gap: 15px; text-align: left; }
+  .book .reply-note { color: rgba(255, 248, 234, 0.65); font-size: 0.95rem; margin-bottom: 40px; letter-spacing: 0.05em; }
+  form { max-width: 540px; margin: 0 auto; display: grid; gap: 16px; text-align: left; position: relative; z-index: 1; }
   label {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--champagne);
   }
   input, select, textarea {
     width: 100%;
-    padding: 15px 16px;
-    border: 1.5px solid rgba(233, 201, 126, 0.4);
-    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid rgba(233, 201, 126, 0.35);
+    border-radius: 2px;
     font-size: 1.05rem;
     font-family: var(--sans);
+    font-weight: 300;
     background: var(--noir-2);
     color: var(--cream);
   }
-  input:focus, select:focus, textarea:focus { outline: 2px solid var(--gold); border-color: transparent; }
-  ::placeholder { color: rgba(255, 248, 234, 0.4); }
-  .fb-line { margin-top: 30px; color: rgba(255, 248, 234, 0.7); font-size: 1rem; }
-  .fb-line a { color: var(--gold); font-weight: 500; }
+  input:focus, select:focus, textarea:focus { outline: 1.5px solid var(--gold); border-color: transparent; }
+  ::placeholder { color: rgba(255, 248, 234, 0.35); }
+  .fb-line { margin-top: 34px; color: rgba(255, 248, 234, 0.65); font-size: 0.95rem; }
+  .fb-line a { color: var(--gold); }
 
   /* ---------- Footer ---------- */
   footer {
     text-align: center;
-    padding: 70px 0 120px;
-    border-top: 1px solid rgba(233, 201, 126, 0.25);
+    padding: 80px 0 130px;
+    border-top: 1px solid var(--hairline);
     overflow: hidden;
+    position: relative;
   }
-  footer .foot-name {
-    font-family: var(--script);
-    font-size: clamp(4rem, 18vw, 8rem);
-    line-height: 1.2;
-    padding: 0.05em 0.25em;
+  footer .foot-glam {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(4rem, 20vw, 9rem);
+    line-height: 0.95;
   }
-  footer .foot-meta { margin-top: 14px; font-size: 0.95rem; color: rgba(255, 248, 234, 0.6); }
-  footer a { color: var(--champagne); text-decoration: none; font-weight: 500; }
+  footer .foot-tan {
+    font-family: var(--sans);
+    font-weight: 200;
+    font-size: clamp(2rem, 10vw, 4.6rem);
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(233, 201, 126, 0.6);
+    display: block;
+    margin-top: 6px;
+  }
+  footer .foot-meta { margin-top: 30px; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255, 248, 234, 0.55); line-height: 2.4; }
+  footer a { color: var(--champagne); text-decoration: none; }
 
   /* ---------- Sticky mobile bar ---------- */
   .call-bar {
@@ -492,7 +513,7 @@
     bottom: 0; left: 0; right: 0;
     background: rgba(10, 8, 5, 0.95);
     backdrop-filter: blur(8px);
-    border-top: 1px solid rgba(233, 201, 126, 0.4);
+    border-top: 1px solid var(--hairline);
     display: flex;
     z-index: 50;
     padding-bottom: env(safe-area-inset-bottom);
@@ -502,16 +523,15 @@
     text-align: center;
     color: var(--champagne);
     text-decoration: none;
-    padding: 16px 8px;
-    font-family: var(--display);
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-size: 0.95rem;
+    padding: 17px 8px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
   }
   .call-bar a.hot { color: var(--noir); background: var(--gold); }
-  .call-bar a + a { border-left: 1px solid rgba(233, 201, 126, 0.25); }
-  body { padding-bottom: 60px; }
+  .call-bar a + a { border-left: 1px solid var(--hairline); }
+  body { padding-bottom: 58px; }
 
   /* ==========================================================
      Tablet & desktop
@@ -519,135 +539,150 @@
   @media (min-width: 640px) {
     .cta-stack { flex-direction: row; justify-content: center; }
     .btn { width: auto; }
-    .cards { grid-template-columns: repeat(2, 1fr); }
     .quotes { grid-template-columns: repeat(3, 1fr); }
+    .ritual-steps { grid-template-columns: repeat(3, 1fr); gap: 30px; }
   }
   @media (min-width: 900px) {
-    section { padding: 110px 0; }
+    section { padding: 130px 0; }
     .call-bar { display: none; }
     body { padding-bottom: 0; }
-    .cards { grid-template-columns: repeat(4, 1fr); }
-    .steps { grid-template-columns: repeat(3, 1fr); }
-    .about-grid { grid-template-columns: 340px 1fr; gap: 60px; }
+    .note {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      gap: 30px;
+      align-items: baseline;
+    }
+    .note .n-kind { margin: 0; }
+    .note p { margin-top: 0; }
+    .artist-grid { grid-template-columns: 340px 1fr; gap: 80px; }
   }
 </style>
 </head>
 <body>
 
 <header id="hdr">
-  <a class="logo holo-text" href="#top">Glam Tan</a>
-  <a class="pill" href="sms:8154995399">💬 Text to Book</a>
+  <a class="wordmark" href="#top"><em>Glam</em>&nbsp; Tan</a>
+  <a class="pill" href="sms:8154995399">Text to Book</a>
 </header>
 
 <section class="hero" id="top">
   <canvas id="bokeh"></canvas>
   <div class="hero-content">
-    <div class="eyebrow rv">✦ Custom Airbrush Spray Tans ✦</div>
-    <h1 class="holo-text rv rv-d1">Glam Tan</h1>
-    <div class="byline rv rv-d1">by Shay Papoccia</div>
-    <p class="tag rv rv-d2">Your big moment deserves a golden glow — never orange, never streaky, always&nbsp;camera-ready.</p>
+    <span class="kicker rv">Custom Airbrush Tans</span>
+    <span class="glam gold-text rv rv-d1">Glam</span>
+    <span class="tan rv rv-d1">Tan</span>
+    <div class="byline rv rv-d2">by <em>Shay Papoccia</em></div>
+    <p class="tagline rv rv-d2">Your big moment deserves a golden glow — never orange, never streaky, always&nbsp;camera-ready.</p>
     <div class="cta-stack rv rv-d3">
-      <a class="btn glow-btn" href="sms:8154995399">💬 Text 815-499-5399</a>
-      <a class="btn btn-ghost" href="tel:8154995399">Or call, if that's your thing</a>
+      <a class="btn glow-btn" href="sms:8154995399">Text 815-499-5399</a>
+      <a class="btn btn-ghost" href="tel:8154995399">Or Call</a>
     </div>
-    <p class="reply-note rv rv-d3">I usually reply the same day ✨</p>
-    <div class="squad-note gold-text rv rv-d3">bring your besties — group bookings welcome</div>
+    <p class="reply-note rv rv-d3">I usually reply the same day</p>
+    <div class="squad-note rv rv-d3">bring your besties — group bookings welcome</div>
   </div>
 </section>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Prom</span><span>✦</span><span>HoCo</span><span>✦</span><span>Weddings</span><span>✦</span><span>Comp Tans</span><span>✦</span><span>Squad Bookings</span><span>✦</span><span>Private Studio</span><span>✦</span><span>Prom</span><span>✦</span><span>HoCo</span><span>✦</span><span>Weddings</span><span>✦</span><span>Comp Tans</span><span>✦</span><span>Squad Bookings</span><span>✦</span><span>Private Studio</span><span>✦</span>
-  </div>
-</div>
-
 <section id="occasions">
+  <span class="bg-letter" style="top: -60px; right: -70px;">G</span>
   <div class="container">
-    <div class="sec-label rv">The Occasions</div>
-    <h2 class="rv">Glow for <span class="script-mix gold-text">every moment</span></h2>
-    <p class="sec-sub rv rv-d1">Every tan is custom-blended to your skin tone and your event — you pick the vibe, I&nbsp;match&nbsp;the&nbsp;glow.</p>
-    <div class="cards">
-      <div class="card rv">
-        <span class="c-sparkle">✦</span>
-        <div class="c-kicker">The Main Event</div>
-        <h3 class="gold-text">Prom &amp; HoCo</h3>
-        <p>The perfect glow to match your dress. Book with your besties and get ready&nbsp;together.</p>
-        <span class="c-tag">✦ Squad bookings</span>
+    <div class="sec-head">
+      <span class="sec-no rv">No. 1 — The Occasions</span>
+      <h2 class="rv">A glow for <em>every note</em><br>of your life.</h2>
+      <p class="sec-sub rv rv-d1">Every tan is custom-blended to your skin tone and your event — you pick the moment, I&nbsp;match&nbsp;the&nbsp;glow.</p>
+    </div>
+    <div class="notes">
+      <div class="note rv">
+        <span class="n-kind">Top Note</span>
+        <h3>Prom <em>&amp;</em> HoCo</h3>
+        <div>
+          <p>The perfect glow to match your dress. Book with your besties and get ready&nbsp;together.</p>
+          <span class="n-tag">Squad bookings</span>
+        </div>
       </div>
-      <div class="card rv rv-d1">
-        <span class="c-sparkle">✧</span>
-        <div class="c-kicker">The Big Day</div>
-        <h3 class="gold-text">Weddings</h3>
+      <div class="note rv">
+        <span class="n-kind">Heart Note</span>
+        <h3>Weddings</h3>
         <p>Bride, bridesmaids, moms — a natural, photo-perfect tan for the whole wedding&nbsp;party.</p>
       </div>
-      <div class="card rv rv-d2">
-        <span class="c-sparkle">✦</span>
-        <div class="c-kicker">Stage Ready</div>
-        <h3 class="gold-text">Comp Tans</h3>
+      <div class="note rv">
+        <span class="n-kind">Base Note</span>
+        <h3>Competition</h3>
         <p>Deep, even, stage-ready color for bodybuilding and fitness&nbsp;competitions.</p>
       </div>
-      <div class="card rv rv-d3">
-        <span class="c-sparkle">✧</span>
-        <div class="c-kicker">No Reason Needed</div>
-        <h3 class="gold-text">Just Because</h3>
+      <div class="note rv">
+        <span class="n-kind">Signature</span>
+        <h3>Just <em>Because</em></h3>
         <p>Vacation, photos, game day, a confidence boost — you don't need a reason to&nbsp;glow.</p>
       </div>
     </div>
-    <p class="not-sure rv">Not sure what you need? <a href="sms:8154995399">Text me</a> — we'll figure out your perfect shade&nbsp;together.</p>
+    <p class="not-sure rv">Not sure what you need? <a href="sms:8154995399">Text me</a> — we'll find your perfect shade&nbsp;together.</p>
   </div>
 </section>
 
-<section class="steps-sec" id="how">
+<section class="ritual" id="how">
+  <span class="bg-letter" style="bottom: -80px; left: -60px;">T</span>
   <div class="container">
-    <div class="sec-label rv">The Process</div>
-    <h2 class="rv">Easy as <span class="script-mix gold-text">1, 2, 3</span></h2>
-    <div class="steps">
-      <div class="step rv">
-        <div class="s-num">1</div>
+    <div class="sec-head">
+      <span class="sec-no rv">No. 2 — The Ritual</span>
+      <h2 class="rv">Three steps<br>to <em>golden.</em></h2>
+    </div>
+    <div class="ritual-steps">
+      <div class="r-step rv">
+        <span class="r-no gold-text">I.</span>
         <h3>Text Me</h3>
-        <p>Send your event date and how many are coming. I usually reply the same day — we'll lock in your spot (usually 1–2 days before your event).</p>
+        <div class="r-rule"></div>
+        <p>Send your event date and how many are coming. We'll lock in your spot — usually 1–2 days before your event.</p>
       </div>
-      <div class="step rv rv-d1">
-        <div class="s-num">2</div>
+      <div class="r-step rv rv-d1">
+        <span class="r-no gold-text">II.</span>
         <h3>Prep</h3>
-        <p>Shower, exfoliate, skip lotion the day of. Don't stress — I'll text you the full prep checklist.</p>
+        <div class="r-rule"></div>
+        <p>Shower, exfoliate, skip the lotion. Don't stress — I'll text you the full prep checklist.</p>
       </div>
-      <div class="step rv rv-d2">
-        <div class="s-num">3</div>
+      <div class="r-step rv rv-d2">
+        <span class="r-no gold-text">III.</span>
         <h3>Glow</h3>
-        <p>A quick, comfy session in my private studio — walk out golden and ready for the spotlight.</p>
+        <div class="r-rule"></div>
+        <p>A quick, comfortable session in my private studio — walk out golden and ready for the spotlight.</p>
       </div>
     </div>
+    <!-- PLACEHOLDER: confirm the scent/perfume detail with Shay before launch -->
+    <p class="scent-line rv">And because luxury is in the details — my studio always smells <span class="gold-text">like a perfume counter.</span></p>
   </div>
 </section>
 
 <section class="manifesto">
   <div class="container">
-    <blockquote class="rv">Never orange. Never streaky.<span class="m-script holo-text rv rv-d1">always glowing ✦</span></blockquote>
+    <span class="line rv">Never orange</span>
+    <span class="line rv rv-d1">Never streaky</span>
+    <span class="line gold-line gold-text rv rv-d2">always golden.</span>
   </div>
 </section>
 
 <section id="kind-words">
+  <span class="bg-letter" style="top: -40px; left: -80px;">S</span>
   <div class="container">
-    <div class="sec-label rv">Glow Reviews</div>
-    <h2 class="rv">The girls <span class="script-mix gold-text">are talking</span></h2>
-    <!-- PLACEHOLDER TESTIMONIALS — swap in real quotes from Shay's Facebook
-         page / client texts. Never publish invented reviews. -->
+    <div class="sec-head">
+      <span class="sec-no rv">No. 3 — Love Notes</span>
+      <h2 class="rv">The girls <em>are talking.</em></h2>
+    </div>
+    <!-- PLACEHOLDER TESTIMONIALS — replace with real quotes from Shay's
+         Facebook page / client texts. Never publish invented reviews. -->
     <div class="quotes">
       <div class="quote rv">
-        <div class="stars">★★★★★</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
         <p>"A real client quote goes right here."</p>
-        <div class="who">— Client name · Prom '26</div>
+        <div class="who">Client Name · Prom '26</div>
       </div>
       <div class="quote rv rv-d1">
-        <div class="stars">★★★★★</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
         <p>"Pulled from her Facebook reviews."</p>
-        <div class="who">— Client name · Wedding</div>
+        <div class="who">Client Name · Wedding</div>
       </div>
       <div class="quote rv rv-d2">
-        <div class="stars">★★★★★</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
         <p>"Real kind words, coming soon."</p>
-        <div class="who">— Client name · HoCo</div>
+        <div class="who">Client Name · HoCo</div>
       </div>
     </div>
   </div>
@@ -655,23 +690,26 @@
 
 <section id="studio">
   <div class="container">
-    <div class="sec-label rv">The Studio</div>
-    <h2 class="rv">Hi gorgeous, <span class="script-mix gold-text">I'm Shay</span></h2>
-    <div class="about-grid">
-      <!-- PLACEHOLDER: real photo of Shay or her studio -->
+    <div class="sec-head">
+      <span class="sec-no rv">No. 4 — The Artist</span>
+      <h2 class="rv">Hi gorgeous,<br>I'm <em>Shay.</em></h2>
+    </div>
+    <div class="artist-grid">
+      <!-- PLACEHOLDER: real photo of Shay, shot simple against a dark wall -->
       <div class="photo-slot rv">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c1.2-3.5 4-5.5 7.5-5.5s6.3 2 7.5 5.5"/></svg>
-        <span>Shay's photo<br>coming soon ✦</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c1.2-3.5 4-5.5 7.5-5.5s6.3 2 7.5 5.5"/></svg>
+        <span>Shay Papoccia<br>portrait coming soon</span>
       </div>
-      <div class="about-copy rv rv-d1">
+      <div class="artist-copy rv rv-d1">
         <p>I run Glam Tan out of my <strong>private home studio</strong> — no salon crowds, no rushing. Just you, good music, and a tan that looks like you were born&nbsp;with&nbsp;it.</p>
         <p>I custom-mix every solution to match your skin tone and your event, and I'll walk you through exactly how to prep and make your glow&nbsp;last.</p>
         <div class="perks">
-          <span class="perk">✦ Private studio</span>
-          <span class="perk">✦ Custom-blended color</span>
-          <span class="perk">✦ Squad bookings</span>
-          <span class="perk">✦ Evenings &amp; weekends</span>
+          <span class="perk">Private studio</span>
+          <span class="perk">Custom-blended</span>
+          <span class="perk">Squad bookings</span>
+          <span class="perk">Evenings &amp; weekends</span>
         </div>
+        <div class="sig">— Shay</div>
       </div>
     </div>
   </div>
@@ -679,10 +717,12 @@
 
 <section class="book" id="book">
   <div class="container">
-    <div class="sec-label rv">Book Your Glow</div>
-    <h2 class="rv">Let's get you <span class="script-mix gold-text">glowing</span></h2>
-    <a class="big-text gold-text rv rv-d1" href="sms:8154995399">Text 815-499-5399</a>
-    <p class="reply-note rv rv-d1">Texting is fastest — I usually reply the same day ✨</p>
+    <div class="sec-head">
+      <span class="sec-no rv">No. 5 — Book Your Glow</span>
+      <h2 class="rv">Let's get you <em>glowing.</em></h2>
+    </div>
+    <a class="big-text rv rv-d1" href="sms:8154995399">815 · 499 · 5399</a>
+    <p class="reply-note rv rv-d1">Texting is fastest — I usually reply the same day</p>
     <!-- Replace YOUR_FORM_ID with a free form ID from formspree.io -->
     <form class="rv rv-d2" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div>
@@ -701,28 +741,29 @@
           <option>Homecoming</option>
           <option>Wedding</option>
           <option>Competition</option>
-          <option>Just because ✨</option>
+          <option>Just because</option>
         </select>
       </div>
       <div>
         <label for="message">Event date &amp; squad size</label>
         <textarea id="message" name="message" rows="4" placeholder="e.g., Prom is May 2nd — me and 3 friends want tans!" required></textarea>
       </div>
-      <button class="btn glow-btn" type="submit" style="width:100%; max-width:none;">Send It ✨</button>
+      <button class="btn glow-btn" type="submit" style="width:100%; max-width:none;">Send It</button>
     </form>
     <p class="fb-line rv">Found me on Facebook? <a href="#" aria-label="Glam Tan Facebook page">Follow Glam Tan</a> for glow pics, openings &amp; prom-season&nbsp;dates.</p>
   </div>
 </section>
 
 <footer>
-  <div class="foot-name holo-text">Glam Tan</div>
-  <p class="foot-meta">Custom Spray Tans by Shay Papoccia · Private home studio · By appointment<br><a href="sms:8154995399">Text 815-499-5399</a></p>
+  <div class="foot-glam gold-text">Glam</div>
+  <span class="foot-tan">Tan</span>
+  <p class="foot-meta">Custom Spray Tans by Shay Papoccia<br>Private home studio · By appointment · <a href="sms:8154995399">Text 815-499-5399</a></p>
 </footer>
 
 <div class="call-bar" role="navigation" aria-label="Quick contact">
-  <a class="hot" href="sms:8154995399">💬 Text</a>
-  <a href="tel:8154995399">📞 Call</a>
-  <a href="#book">✨ Book</a>
+  <a class="hot" href="sms:8154995399">Text</a>
+  <a href="tel:8154995399">Call</a>
+  <a href="#book">Book</a>
 </div>
 
 <script>
@@ -736,15 +777,10 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-// ================= Shared glitter renderer =================
+// ================= Shared glitter renderer (champagne gold) =================
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const GOLDS = ['#E9C97E', '#F7E8C9', '#FFF3D6', '#C9A24B', '#FFFFFF'];
-const HOLO = ['#FF9AD5', '#C79BFF', '#8FD3FF'];
-function pickColor() {  // mostly champagne gold, occasional holographic pop
-  return Math.random() < 0.82
-    ? GOLDS[Math.floor(Math.random() * GOLDS.length)]
-    : HOLO[Math.floor(Math.random() * HOLO.length)];
-}
+function goldColor() { return GOLDS[Math.floor(Math.random() * GOLDS.length)]; }
 function drawGlint(ctx, x, y, size, color, alpha, spin) {
   ctx.save();
   ctx.globalAlpha = alpha;
@@ -760,7 +796,7 @@ function drawGlint(ctx, x, y, size, color, alpha, spin) {
   ctx.lineTo(-size * 0.4, 0);
   ctx.closePath();
   ctx.fill();
-  if (alpha > 0.8) {   // cross-flare at peak sparkle
+  if (alpha > 0.8) {
     ctx.globalAlpha = (alpha - 0.8) * 4;
     ctx.strokeStyle = color;
     ctx.lineWidth = 0.7;
@@ -772,7 +808,7 @@ function drawGlint(ctx, x, y, size, color, alpha, spin) {
   ctx.restore();
 }
 
-// ================= Hero: gold bokeh + glitter (matches FB cover) =================
+// ================= Hero: gold bokeh + glitter (matches her FB cover) =================
 if (!REDUCED) (function () {
   const canvas = document.getElementById('bokeh');
   const ctx = canvas.getContext('2d');
@@ -784,16 +820,16 @@ if (!REDUCED) (function () {
   resize();
 
   const ORBS = Math.min(46, Math.floor(W / 22));
-  const SPARKS = Math.min(120, Math.floor(W * H / 12000));
+  const SPARKS = Math.min(110, Math.floor(W * H / 13000));
 
   for (let i = 0; i < ORBS; i++) {
-    const depth = Math.random();               // deeper = bigger, blurrier, dimmer
+    const depth = Math.random();
     orbs.push({
       x: Math.random() * W,
-      y: H * 0.45 + Math.random() * H * 0.6,   // bokeh sits low, like her cover photo
+      y: H * 0.45 + Math.random() * H * 0.6,
       r: 6 + depth * 34,
-      a: 0.05 + (1 - depth) * 0.22,
-      vy: -(0.05 + Math.random() * 0.18),
+      a: 0.05 + (1 - depth) * 0.2,
+      vy: -(0.05 + Math.random() * 0.16),
       vx: (Math.random() - 0.5) * 0.1,
       color: GOLDS[Math.floor(Math.random() * 3)]
     });
@@ -802,17 +838,16 @@ if (!REDUCED) (function () {
     sparks.push({
       x: Math.random() * W,
       y: Math.random() * H,
-      r: 0.8 + Math.random() * 2.4,
+      r: 0.8 + Math.random() * 2.2,
       phase: Math.random() * Math.PI * 2,
-      speed: 0.03 + Math.random() * 0.07,
+      speed: 0.03 + Math.random() * 0.06,
       spin: Math.random() * Math.PI,
-      color: pickColor()
+      color: goldColor()
     });
   }
 
   function frame() {
     ctx.clearRect(0, 0, W, H);
-    // soft bokeh orbs
     for (const o of orbs) {
       o.y += o.vy; o.x += o.vx;
       if (o.y < -50) { o.y = H + 50; o.x = Math.random() * W; }
@@ -826,19 +861,18 @@ if (!REDUCED) (function () {
       ctx.fill();
     }
     ctx.globalAlpha = 1;
-    // twinkling glitter
     for (const s of sparks) {
       s.phase += s.speed;
-      s.spin += 0.015;
+      s.spin += 0.014;
       const tw = (Math.sin(s.phase) + 1) / 2;
-      drawGlint(ctx, s.x, s.y, s.r * (0.5 + tw), s.color, 0.15 + tw * 0.85, s.spin);
+      drawGlint(ctx, s.x, s.y, s.r * (0.5 + tw), s.color, 0.12 + tw * 0.82, s.spin);
     }
     requestAnimationFrame(frame);
   }
   frame();
 })();
 
-// ================= Cursor glitter trail (champagne + holo pops) =================
+// ================= Cursor glitter trail (matches hero glitter) =================
 if (!REDUCED && !matchMedia('(hover: none)').matches) (function () {
   const canvas = document.createElement('canvas');
   canvas.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;';
@@ -867,7 +901,7 @@ if (!REDUCED && !matchMedia('(hover: none)').matches) (function () {
         r: 1 + Math.random() * 2.4,
         life: 1,
         decay: 0.015 + Math.random() * 0.025,
-        color: pickColor(),
+        color: goldColor(),
         spin: Math.random() * Math.PI,
         spinV: (Math.random() - 0.5) * 0.25
       });
